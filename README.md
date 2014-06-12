@@ -1,4 +1,4 @@
-# Chronos
+# Chronos [![Build Status](https://travis-ci.org/mesosphere/chronos.png?branch=master)](https://travis-ci.org/mesosphere/chronos)
 
 Chronos is Airbnb's replacement for `cron`.
 It is a distributed and fault-tolerant scheduler that runs on top of [Apache Mesos][mesos].
