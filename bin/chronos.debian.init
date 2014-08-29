@@ -37,7 +37,7 @@ do_start() {
         return 1
     fi
 
-    start-stop-daemon --start --quiet --background --pidfile $PIDFILE --exec $DAEMON -- \
+    start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON -- \
             $DAEMON_ARGS \
             || return 2
 }
@@ -48,7 +48,7 @@ do_stop() {
     #   1 if daemon was already stopped
     #   2 if daemon could not be stopped
     #   other if a failure occurred
-    start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PIDFILE --name $NAME
+    start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PIDFILE
     RETVAL="$?"
     [ "$RETVAL" = 2 ] && return 2
     rm -f $PIDFILE
